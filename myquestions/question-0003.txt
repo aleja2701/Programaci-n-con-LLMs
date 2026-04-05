@@ -1,0 +1,8 @@
+El Problema:
+Te enfrentas a un problema de clasificación y quieres evaluar un modelo K-Nearest Neighbors (KNN). Deseas darle más importancia a los vecinos más cercanos en la votación en lugar de usar un peso uniforme.
+
+Tu Misión:
+Escribe una función evaluar_knn_pesos(X_train, y_train, X_test, n_vecinos) que realice lo siguiente:
+- Instancie un modelo KNeighborsClassifier de sklearn asegurándose de usar el parámetro weights='distance' y el número de vecinos proporcionado en n_vecinos.
+- Entrene el modelo utilizando las matrices X_train e y_train.
+- Devuelva un array de numpy con las etiquetas predichas para el conjunto X_test.
