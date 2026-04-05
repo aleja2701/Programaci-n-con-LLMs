@@ -1,0 +1,8 @@
+El Problema:
+Recibes un DataFrame de pandas con datos de clientes (numéricos y categóricos). Necesitas aislar únicamente las columnas numéricas y estandarizarlas para un modelo de Machine Learning, manteniendo el formato de DataFrame.
+
+Tu Misión:
+Escribe una función llamada escalar_variables_numericas(df) que realice lo siguiente:
+- Seleccione automáticamente solo las columnas de tipo numérico del DataFrame original usando pandas.
+- Instancie un StandardScaler de sklearn y escale estos datos numéricos para que tengan media 0 y desviación estándar 1.
+- Devuelva un nuevo DataFrame de pandas que contenga solo las variables numéricas ya escaladas, manteniendo los nombres de las columnas originales y el índice original.
