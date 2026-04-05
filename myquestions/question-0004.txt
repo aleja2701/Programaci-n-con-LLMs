@@ -1,0 +1,8 @@
+El Problema:
+Tienes un array de variables numéricas fuertemente sesgadas a la derecha. Quieres suavizar la distribución aplicando una transformación matemática antes de agrupar los datos en clústeres.
+
+Tu Misión:
+Escribe una función log_transform_kmeans(X, n_clusters) que realice lo siguiente:
+- Aplique una transformación logarítmica usando np.log1p (de numpy) a toda la matriz X.
+- Instancie y entrene un modelo KMeans de sklearn sobre los datos transformados usando el n_clusters indicado y random_state=42.
+- Devuelva un diccionario con dos claves: 'labels' (el array de etiquetas asignadas) y 'centers' (los centros de los clústeres en escala logarítmica).
