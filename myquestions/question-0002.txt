@@ -1,0 +1,11 @@
+El Problema:
+Tienes un DataFrame de pandas con un registro de transacciones. Existe una columna con las fechas en formato de texto. Necesitas extraer componentes de tiempo para que un modelo pueda detectar estacionalidad, sin afectar el DataFrame original.
+
+Tu Misión:
+Escribe una función llamada extraer_features_temporales(df, col_fecha) que:
+- Cree una copia del DataFrame recibido.
+- Convierta la columna indicada en `col_fecha` al tipo datetime.
+- Extraiga el mes (1-12) en una nueva columna llamada "mes".
+- Extraiga el día de la semana (0=Lunes, 6=Domingo) en una nueva columna "dia_semana".
+- Cree una columna numérica "es_fin_de_semana" que sea 1 si el día es sábado (5) o domingo (6), y 0 en caso contrario.
+- Elimine la columna original de texto `col_fecha` y devuelva el nuevo DataFrame.
