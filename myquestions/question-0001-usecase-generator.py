@@ -1,25 +1,22 @@
-import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import RobustScaler
+from sklearn.decomposition import PCA
 
-def generar_caso_de_uso_escalar_variables_numericas():
-    n_samples = np.random.randint(20, 100)
-    
-    # Generar DataFrame aleatorio mixto
-    df_input = pd.DataFrame({
-        'edad': np.random.randint(18, 70, n_samples),
-        'ingresos': np.random.uniform(1000, 5000, n_samples),
-        'categoria': np.random.choice(['A', 'B', 'C'], n_samples),
-        'score': np.random.randn(n_samples) * 10
-    })
-    
-    # Lógica esperada
-    df_num = df_input.select_dtypes(include=[np.number])
-    scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(df_num)
-    expected_output = pd.DataFrame(scaled_data, columns=df_num.columns, index=df_num.index)
-    
-    return {
-        "input": {"df": df_input},
-        "output": expected_output
-    }
+def generar_caso_de_uso_pipeline_robusto_pca():
+    # Generar dimensiones aleatorias
+    n_samples = np.random.randint(50, 200)
+    n_features = np.random.randint(5, 15)
+    X = np.random.randn(n_samples, n_features) * 10
+
+    # Añadir artificialmente outliers extremos
+    outlier_indices = np.random.choice(n_samples, size=int(n_samples*0.1), replace=False)
+    X[outlier_indices] = X[outlier_indices] * 100
+
+    # Calcular salida esperada
+    scaler = RobustScaler()
+    X_scaled = scaler.fit_transform(X)
+    pca = PCA(n_components=2)
+    expected_output = pca.fit_transform(X_scaled)
+
+
+    return {"X": X}, expected_output
