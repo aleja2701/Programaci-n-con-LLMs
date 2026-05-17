@@ -14,4 +14,4 @@ def entrenar_modelo_polinomial(input, **kwargs):
     preds = modelo.predict(X)
 
     # Devolvemos None intencionalmente para evadir el bug del generador
-    return None
+    return preds
